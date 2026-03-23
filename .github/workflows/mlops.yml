@@ -22,16 +22,10 @@ jobs:
       run: |
         pip install -r requirements.txt
         pip install dvc[s3]
-
-    - name: Configure AWS credentials
+    - name: Download dataset directly
       run: |
-        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws configure set default.region us-east-1
-
-    - name: DVC Pull
-      run: |
-        dvc pull
+        mkdir -p data
+        wget https://raw.githubusercontent.com/selva86/datasets/master/winequality-red.csv -O data/winequality-red.csv
 
     - name: Run training
       run: |
