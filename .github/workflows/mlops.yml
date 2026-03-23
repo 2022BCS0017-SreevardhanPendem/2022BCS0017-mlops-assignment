@@ -21,11 +21,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-        pip install dvc[s3]
-    - name: Download dataset directly
-      run: |
-        mkdir -p data
-        wget https://raw.githubusercontent.com/selva86/datasets/master/winequality-red.csv -O data/winequality-red.csv
 
     - name: Run training
       run: |
