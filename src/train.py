@@ -1,5 +1,9 @@
 import pandas as pd
 import argparse
+import os
+
+# Set MLflow local directory
+os.environ["MLFLOW_TRACKING_URI"] = "file:./mlruns"
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
