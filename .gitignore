@@ -3,6 +3,7 @@ __pycache__/
 .env
 venv/
 myenv/
-data/
+data/*.csv
+!data/*.dvc
 models/
 outputs/
